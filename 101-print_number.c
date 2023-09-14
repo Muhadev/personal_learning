@@ -3,30 +3,19 @@
 
 void print_number(int n)
 {
-	int digits;
-	int divisor = 1;
+
 	int num = n;
-	if (n < 0)
+	if (num < 0)
 	{
 		_putchar('-');
-		num = -num;
+		num = num * -1;
 	}
 	if (num == 0)
-        {
                 _putchar('0');
-                return;
-        }
-	while (num > 9)
+	else
 	{
-		divisor *= 10;
-		num = num / 10;
-	}
-	while (divisor > 0)
-	{
-		digits = n / divisor;
-		_putchar(digits + '0');
-		n = n % divisor;
-		divisor /= 10;
-	}
-
+	if (num / 10)
+		print_number(num / 10);
+	_putchar(num % 10 + '0');
+}
 }
